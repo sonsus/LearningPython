@@ -1,3 +1,6 @@
+#Python has no private class variable. It is vulnerable and we should be careful manipulating class vars.
+#Naming convention for mem. var. wamted to be protected is that dunder starting name (e.g. __var)
+
 #Class in python
 
 class practice:
