@@ -1,3 +1,6 @@
+#timeout error
+#program even
+
 from math import sqrt
 
 numstring=input()
