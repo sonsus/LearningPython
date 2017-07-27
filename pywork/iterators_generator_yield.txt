@@ -1,0 +1,7 @@
+
+what does yield stmt do?
+
+should see in this order
+iterables --> generator --> yield 
+
+https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python?page=1&tab=votes#tab-top
