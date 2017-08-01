@@ -6,8 +6,6 @@ import sys
 
 
 class SFC:
-    name, age, gender, church= "n/a", 0, "n/a", "n/a" 
-    with_list, nwith_list=[], []
     #name age gender church withwho notwithwho
     def __init__(self, chart_row=["n/a", 0, "n/a", "n/a", None, None]):
         self.name=chart_row[0]
@@ -15,6 +13,8 @@ class SFC:
         except: return 
         self.gender="m" if chart_row[2]=="남자" else "f" #m for male, f for female
         self.church=chart_row[3]
+
+        \# need to check here whether len(row) will be 6 if the row has nwithwho but withwho
         if len(chart_row)>4 and type(chart_row[4])==type("string"): self.with_list=list(chart_row[4].split(","))
         if len(chart_row)>5 and type(chart_row[5])==type("string"): self.nwith_list=list(chart_row[5].split(","))
         print("constructor is executed for chart_row:%s"%chart_row)
