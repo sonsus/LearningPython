@@ -1,0 +1,42 @@
+import numpy as np
+import csv
+import os
+import sys
+
+
+class SFC:
+    name, age, gender, church= "n/a", 0, "n/a", "n/a"
+    with_list, nwith_list=[], []
+    #name age gender church withwho notwithwho
+    def __init__(self, chart_row):
+        self.name=chart_row[0]
+        try: self.age=int(chart_row[1]) #handling value error exception for the first line ("int(string)")
+        except: return 
+        self.gender="m" if chart_row[2]=="남자" else "f" #m for male, f for female
+        self.church=chart_row[3]
+        if len(chart_row)>4 and type(chart_row[4])==type("string"): self.with_list=list(chart_row[4].split(","))
+        if len(chart_row)>5 and type(chart_row[5])==type("string"): self.nwith_list=list(chart_row[5].split(","))
+        print("constructor is executed for chart_row:%s"%chart_row)
+
+def truncate_tail(chart_row): #chart_row==[name, age, gender, church]
+    ch_full=chart_row[-1].rstrip()
+    if ch_full[-2:]=="교회": 
+        church_prefix=ch_full[:-2] #truncate if church name contains "교회"
+        chart_row[-1]=church_prefix
+    return chart_row 
+
+#currnet working directory should contain target file: staff.csv
+#the script should be run on the same directory as the target file
+
+def csv_2_lists()
+    currentdir=os.getcwd()
+    with open(currentdir+"\\staff.csv", 'r', newline="") as csv_f:
+        print(currentdir+"\\staff.csv")
+        chart=csv.reader(csv_f, delimiter="\t")
+        
+        sfc_list=[SFC(truncate_tail(row)) for row in chart]
+        del sfc_list[0] #removing empty SFC object created 
+        
+        age_desc_list=sorted(sfc_list, key=lambda sfc: sfc.age, reverse=True)
+        return  sfc_list, age_desc_list
+
