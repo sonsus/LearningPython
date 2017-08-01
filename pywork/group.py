@@ -1,14 +1,15 @@
 import numpy as np
+import pandas as pd
 import csv
 import os
 import sys
 
 
 class SFC:
-    name, age, gender, church= "n/a", 0, "n/a", "n/a"
+    name, age, gender, church= "n/a", 0, "n/a", "n/a" 
     with_list, nwith_list=[], []
     #name age gender church withwho notwithwho
-    def __init__(self, chart_row):
+    def __init__(self, chart_row=["n/a", 0, "n/a", "n/a", None, None]):
         self.name=chart_row[0]
         try: self.age=int(chart_row[1]) #handling value error exception for the first line ("int(string)")
         except: return 
@@ -27,11 +28,18 @@ def truncate_tail(chart_row): #chart_row==[name, age, gender, church]
 
 #currnet working directory should contain target file: staff.csv
 #the script should be run on the same directory as the target file
+def currentdir():
+    return os.getcwd()+"\\"
 
-def csv_2_lists()
+def excel_2_csv(xlsx_name):
+    data_xls = pd.read_excel(currentdir()+xlsx_name, 'Sheet2', index_col=None)
+    csv_name=xlsx_name[:-4]+"csv"
+    data_xls.to_csv(csv_name, encoding='utf-8', index=False)
+    return csv_name
+
+def csv_2_lists(csv_name):#csv name need to be a string 
     currentdir=os.getcwd()
-    with open(currentdir+"\\staff.csv", 'r', newline="") as csv_f:
-        print(currentdir+"\\staff.csv")
+    with open(currentdir+"\\"+csv_name, 'r', newline="") as csv_f:
         chart=csv.reader(csv_f, delimiter="\t")
         
         sfc_list=[SFC(truncate_tail(row)) for row in chart]
