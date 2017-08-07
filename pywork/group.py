@@ -1,9 +1,11 @@
+#deprecated: gave up !...
+#should've started the project earlier or it should've been about more critical issue!
+
 import numpy as np
 import pandas as pd
 import csv
 import os
 import sys
-
 
 class SFC:
     #name age gender church withwho notwithwho
