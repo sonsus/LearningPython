@@ -1,4 +1,6 @@
 #rename.py
+#it is not working well.
+#try, except sentence needed here. 
 
 import os
 import subprocess as sb
