@@ -1,0 +1,4 @@
+pandas tut 10min
+https://pandas.pydata.org/pandas-docs/stable/10min.html
+pandas ds intro
+https://pandas.pydata.org/pandas-docs/stable/dsintro.html
