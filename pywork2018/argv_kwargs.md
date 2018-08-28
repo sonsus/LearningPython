@@ -1,6 +1,6 @@
 
 
-```python
+```
 *argv
 def function(*argv):
     ...
